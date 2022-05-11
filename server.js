@@ -29,17 +29,10 @@ router.get('/notes', async (ctx, next) => {
 });
 
 router.post('/notes', async(ctx, next) => {
-    const {id, note} = ctx.request.body;
-    console.log('прищло в post запросе',ctx.request.body, id, note );
-
-    if (id !== 0) {
-        notes = notes.map(o => o.id !== id ? o : {...o, note: note});
-        ctx.response.status = 204;
-        return;
-    }
-
-    //notes.push({...ctx.request.body, id: nextId++, created: Date.now()});
+    console.log('пришло в post запросе', ctx.request, ctx.request.body);
     notes.push({...ctx.request.body, id: nextId++});
+    console.log('получили массив на выходе запросе',notes );
+    //ctx.response.body = notes;//? не нужно
     ctx.response.status = 204;
 });
 
@@ -57,11 +50,6 @@ app.use(router.routes()).use(router.allowedMethods());
 const port = process.env.PORT || 7077;
 const server = http.createServer(app.callback());
 server.listen(port, () => console.log('server started on port', port));
-
-// https://www.digitalocean.com/community/tutorials/workflow-nodemon-ru#
-// https://nodejsdev.ru/api/querystring/
-//В querystring API считается устаревшим. 
-// Хотя он все еще поддерживается, новый код должен использовать вместо него {URLSearchParams} API.
 
 // список запущ процессов ps -la или все : ps -ax
 //ps -la // Для получения основных сведений о процессах, запущенных текущем пользователем
