@@ -1,0 +1,32 @@
+{
+  "name": "ra6.2-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "forever": "^4.0.3",
+    "koa": "^2.13.4",
+    "koa-body": "^5.0.0",
+    "koa-router": "^10.1.1",
+    "koa2-cors": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "prestart": "npm install",
+    "start": "forever server.js",
+    "watch": "forever -w server.js",
+    "st": "nodemon server.js",
+    "stop": "forever stopall"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Svetlana-Kutyeva1974/ra6.2-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Svetlana-Kutyeva1974/ra6.2-server/issues"
+  },
+  "homepage": "https://github.com/Svetlana-Kutyeva1974/ra6.2-server#readme"
+}
