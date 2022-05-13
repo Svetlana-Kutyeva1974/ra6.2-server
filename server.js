@@ -8,7 +8,10 @@ const app = new Koa();
 
 app.use(cors());
 app.use(koaBody({
-  json: true
+  text: true,
+  urlencoded: true,
+  multipart: true,
+  json: true,
 }));
 
 let notes = [{
